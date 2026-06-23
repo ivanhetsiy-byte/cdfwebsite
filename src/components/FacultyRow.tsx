@@ -61,11 +61,7 @@ export default function FacultyRow({
 
   return (
     <>
-      <div
-        className={`flex flex-col items-center gap-8 px-4 sm:gap-10 lg:hidden ${
-          imagePosition === "right" ? "flex-col-reverse" : ""
-        }`}
-      >
+      <div className="flex flex-col items-center gap-8 px-4 sm:gap-10 lg:hidden">
         {imageBlock}
         {textBlock}
       </div>
