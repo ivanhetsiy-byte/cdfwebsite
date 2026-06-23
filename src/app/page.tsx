@@ -6,9 +6,9 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="relative mx-auto min-h-[2529px] w-full min-w-[1440px] max-w-[1440px] bg-surface-light">
-      <Header />
-      <div className="relative">
+    <main className="w-full bg-surface-light">
+      <div className="relative min-h-screen w-full">
+        <Header />
         <Hero />
         <SocialBar />
       </div>

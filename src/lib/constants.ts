@@ -7,10 +7,10 @@ export const NAV_LINKS = [
 ] as const;
 
 export const SOCIAL_LINKS = [
-  { label: "TikTok", href: "https://tiktok.com", icon: "/images/social/tiktok.png" },
-  { label: "YouTube", href: "https://youtube.com", icon: "/images/social/youtube.png" },
-  { label: "Facebook", href: "https://facebook.com", icon: "/images/social/facebook.png" },
-  { label: "Instagram", href: "https://instagram.com", icon: "/images/social/instagram.png" },
+  { label: "TikTok", href: "https://tiktok.com", icon: "/images/social/tiktok.svg" },
+  { label: "YouTube", href: "https://youtube.com", icon: "/images/social/youtube.svg" },
+  { label: "Facebook", href: "https://facebook.com", icon: "/images/social/facebook.svg" },
+  { label: "Instagram", href: "https://instagram.com", icon: "/images/social/instagram.svg" },
 ] as const;
 
 export const FACULTY_ROWS = [

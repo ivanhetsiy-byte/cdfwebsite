@@ -7,7 +7,7 @@ export default function CornerBrackets() {
         <div className="-rotate-90">
           <div className="relative h-[56px] w-[175px]">
             <Image
-              src="/images/brackets/top-left.png"
+              src="/images/brackets/top-left.svg"
               alt=""
               fill
               className="object-contain"
@@ -19,19 +19,20 @@ export default function CornerBrackets() {
 
       <div className="absolute right-[17px] top-[10.5px] h-[105px] w-[175px]">
         <Image
-          src="/images/brackets/top-right.png"
+          src="/images/brackets/top-right.svg"
           alt=""
           fill
+          sizes="175px"
           className="object-contain"
           aria-hidden
         />
       </div>
 
-      <div className="absolute bottom-[82px] left-[15px] flex w-[1400px] items-end justify-between">
+      <div className="absolute inset-x-[15px] bottom-[82px] flex items-end justify-between">
         <div className="rotate-180">
           <div className="relative h-[105px] w-[175px]">
             <Image
-              src="/images/brackets/bottom-left.png"
+              src="/images/brackets/bottom-left.svg"
               alt=""
               fill
               className="object-contain"
@@ -44,7 +45,7 @@ export default function CornerBrackets() {
           <div className="rotate-90">
             <div className="relative h-[56px] w-[175px]">
               <Image
-                src="/images/brackets/bottom-right.png"
+                src="/images/brackets/bottom-right.svg"
                 alt=""
                 fill
                 className="object-contain"
