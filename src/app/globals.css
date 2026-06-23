@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Cy";
+  src: url("/fonts/cy/Cy-ExtraLight.woff2") format("woff2");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cy";
+  src: url("/fonts/cy/Cy-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cy";
+  src: url("/fonts/cy/Cy-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --surface-light: #f4f4f4;
+  --surface-dark: #000000;
+  --foreground-light: #000000;
+  --foreground-dark: #f4f4f4;
+  --hero-watermark: rgba(244, 244, 244, 0.2);
+}
+
+@theme inline {
+  --color-surface-light: var(--surface-light);
+  --color-surface-dark: var(--surface-dark);
+  --color-foreground-light: var(--foreground-light);
+  --color-foreground-dark: var(--foreground-dark);
+  --color-hero-watermark: var(--hero-watermark);
+  --font-family-cy: "Cy", var(--font-cy-fallback), sans-serif;
+  --font-family-inter: var(--font-inter-fallback), sans-serif;
+  --font-size-nav: 15px;
+  --font-size-body-lg: 20px;
+  --font-size-footer: 12px;
+  --font-size-hero-watermark: 531px;
+  --spacing-faculty-gap-sm: 113px;
+  --spacing-faculty-gap-md: 122px;
+  --spacing-faculty-gap-lg: 203px;
+  --max-width-page: 1440px;
+  --min-width-page: 1440px;
+}
+
+html {
+  overflow-x: auto;
+}
+
+body {
+  background: var(--surface-light);
+  color: var(--foreground-light);
+  font-family: var(--font-inter);
+}
+
+.text-hero-watermark-shadow {
+  text-shadow:
+    -20px -20px 40px rgba(255, 255, 255, 0.9),
+    0px 4px 4px rgba(0, 0, 0, 0.25);
+}
