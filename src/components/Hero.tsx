@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import TransitionLink from "@/components/TransitionLink";
 import HeroWatermark from "@/components/HeroWatermark";
 
 export default function Hero() {
@@ -23,12 +23,12 @@ export default function Hero() {
           </div>
 
           <div className="absolute left-1/2 top-[37.8%] z-20 w-[min(275px,85vw)] -translate-x-1/2 sm:w-[275px]">
-            <Link
-              href="#contact"
+            <TransitionLink
+              href="/contact"
               className="glass-cta h-14 font-cy text-base font-semibold leading-normal text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:h-[67px] sm:text-[20px]"
             >
               Get&nbsp;&nbsp;&nbsp;In&nbsp;&nbsp;&nbsp;Touch
-            </Link>
+            </TransitionLink>
           </div>
         </div>
       </div>

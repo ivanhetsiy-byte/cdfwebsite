@@ -1,6 +1,9 @@
 import type { CSSProperties } from "react";
 import type { Metadata } from "next";
-import { cy, inter } from "@/lib/fonts";
+import { cy, inter, sourceSerif } from "@/lib/fonts";
+import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
+import { PageTransitionProvider } from "@/components/PageTransitionProvider";
+import "lenis/dist/lenis.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -16,15 +19,22 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${cy.variable} h-full antialiased`}
+      className={`${inter.variable} ${cy.variable} ${sourceSerif.variable} h-full antialiased`}
       style={
         {
           "--font-inter-fallback": inter.style.fontFamily,
           "--font-cy-fallback": cy.style.fontFamily,
+          "--font-source-serif-fallback": sourceSerif.style.fontFamily,
         } as CSSProperties
       }
     >
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full">
+        <SmoothScrollProvider>
+          <PageTransitionProvider>{children}</PageTransitionProvider>
+        </SmoothScrollProvider>
+      </body>
     </html>
   );
 }
+
+

@@ -1,10 +1,24 @@
 export const NAV_LINKS = [
-  { label: "FACULTY", href: "#faculty" },
-  { label: "SCHEDULE", href: "#schedule" },
-  { label: "GROUPS", href: "#groups" },
-  { label: "ABOUT", href: "#about" },
-  { label: "GET IN TOUCH", href: "#contact" },
+  { label: "HOME", href: "/" },
+  { label: "SCHEDULE", href: "/schedule" },
+  { label: "GROUPS", href: "/groups" },
+  { label: "ABOUT", href: "/#about" },
+  { label: "GET IN TOUCH", href: "/contact" },
 ] as const;
+
+/** Nav order index for full-page routes (used for transition direction). */
+export function getPageNavIndex(pathname: string): number {
+  for (let i = 0; i < NAV_LINKS.length; i++) {
+    const href = NAV_LINKS[i].href;
+    if (href.startsWith("/") && !href.startsWith("//")) {
+      if (href === pathname) {
+        return i;
+      }
+    }
+  }
+
+  return -1;
+}
 
 export const SOCIAL_LINKS = [
   { label: "TikTok", href: "https://tiktok.com", icon: "/images/social/tiktok.svg" },

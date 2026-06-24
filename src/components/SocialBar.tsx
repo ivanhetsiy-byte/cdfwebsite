@@ -12,7 +12,7 @@ export default function SocialBar() {
           aria-label={social.label}
           target="_blank"
           rel="noopener noreferrer"
-          className="relative block size-7 transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black sm:size-[34px]"
+          className="social-link relative block size-7 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black sm:size-[34px]"
         >
           <Image
             src={social.icon}

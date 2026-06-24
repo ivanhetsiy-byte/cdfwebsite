@@ -23,14 +23,14 @@ function FacultyImage({
 }) {
   return (
     <div
-      className={`relative mx-auto h-[280px] w-[min(287px,80vw)] shrink-0 sm:h-[346px] sm:w-[287px] ${bordered ? "border border-black" : ""}`}
+      className={`faculty-image relative mx-auto h-[280px] w-[min(287px,80vw)] shrink-0 overflow-hidden sm:h-[346px] sm:w-[287px] ${bordered ? "border border-black" : ""}`}
     >
       <Image
         src={image}
         alt={imageAlt}
         fill
         sizes="(max-width: 640px) 80vw, 287px"
-        className="object-cover"
+        className="faculty-image__photo object-cover"
       />
     </div>
   );

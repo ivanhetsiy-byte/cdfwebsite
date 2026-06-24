@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import TransitionLink from "@/components/TransitionLink";
+import { useSmoothScroll } from "@/components/SmoothScrollProvider";
 import { NAV_LINKS } from "@/lib/constants";
 
 function MenuIcon({ open }: { open: boolean }) {
@@ -29,13 +30,20 @@ function MenuIcon({ open }: { open: boolean }) {
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { stop, start } = useSmoothScroll();
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
+    if (menuOpen) {
+      stop();
+    } else {
+      start();
+    }
     return () => {
       document.body.style.overflow = "";
+      start();
     };
-  }, [menuOpen]);
+  }, [menuOpen, stop, start]);
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -56,9 +64,9 @@ export default function Header() {
   return (
     <>
       <header className="absolute inset-x-0 top-[15px] z-[60] flex w-full items-center justify-between gap-4 px-4 sm:px-9">
-        <Link
+        <TransitionLink
           href="/"
-          className="relative block h-12 w-16 shrink-0 sm:h-[67px] sm:w-[90px]"
+          className="logo-link relative block h-12 w-16 shrink-0 sm:h-[67px] sm:w-[90px]"
         >
           <Image
             src="/images/logo.svg"
@@ -68,21 +76,18 @@ export default function Header() {
             className="object-contain object-left"
             priority
           />
-        </Link>
+        </TransitionLink>
 
-        <nav
-          aria-label="Main navigation"
-          className="hidden lg:block"
-        >
+        <nav aria-label="Main navigation" className="hidden lg:block">
           <ul className="flex items-center gap-[27px]">
             {NAV_LINKS.map((link) => (
               <li key={link.label}>
-                <Link
+                <TransitionLink
                   href={link.href}
-                  className="font-inter text-[15px] leading-normal text-foreground-light whitespace-nowrap transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  className="nav-link font-inter text-[15px] leading-normal text-foreground-light whitespace-nowrap focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
                   {link.label}
-                </Link>
+                </TransitionLink>
               </li>
             ))}
           </ul>
@@ -90,7 +95,7 @@ export default function Header() {
 
         <button
           type="button"
-          className="flex size-10 items-center justify-center lg:hidden"
+          className="menu-button flex size-10 items-center justify-center lg:hidden"
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"
           aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -102,10 +107,10 @@ export default function Header() {
 
       <div
         id="mobile-menu"
-        className={`fixed inset-0 z-50 flex flex-col items-center justify-center bg-surface-light transition-[visibility,opacity] duration-300 lg:hidden ${
+        className={`fixed inset-0 z-50 flex flex-col items-center justify-center bg-surface-light transition-[visibility,opacity,transform] duration-[350ms] ease-out lg:hidden ${
           menuOpen
-            ? "visible opacity-100"
-            : "invisible pointer-events-none opacity-0"
+            ? "visible translate-y-0 opacity-100"
+            : "invisible pointer-events-none translate-y-2 opacity-0"
         }`}
         aria-hidden={!menuOpen}
       >
@@ -113,13 +118,13 @@ export default function Header() {
           <ul className="flex flex-col items-center gap-10">
             {NAV_LINKS.map((link) => (
               <li key={link.label}>
-                <Link
+                <TransitionLink
                   href={link.href}
                   onClick={closeMenu}
-                  className="font-inter text-2xl leading-normal tracking-wide text-foreground-light transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black"
+                  className="nav-link font-inter text-2xl leading-normal tracking-wide text-foreground-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black"
                 >
                   {link.label}
-                </Link>
+                </TransitionLink>
               </li>
             ))}
           </ul>
