@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import { cy, inter, sourceSerif } from "@/lib/fonts";
+import { InitialLoadProvider } from "@/components/InitialLoadProvider";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 import { PageTransitionProvider } from "@/components/PageTransitionProvider";
 import "lenis/dist/lenis.css";
@@ -29,8 +30,15 @@ export default function RootLayout({
       }
     >
       <body className="min-h-full">
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.classList.add("is-initial-loading");`,
+          }}
+        />
         <SmoothScrollProvider>
-          <PageTransitionProvider>{children}</PageTransitionProvider>
+          <InitialLoadProvider>
+            <PageTransitionProvider>{children}</PageTransitionProvider>
+          </InitialLoadProvider>
         </SmoothScrollProvider>
       </body>
     </html>

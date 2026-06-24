@@ -48,9 +48,13 @@ export default function GroupsPageContent() {
         <div className="mt-16 flex w-full justify-end sm:mt-24 lg:mt-[136px]">
           <TransitionLink
             href="/schedule"
-            className="glass-cta h-[100px] w-full max-w-[507px] font-cy text-xl font-semibold leading-normal text-[#1e1e1e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black sm:h-[149px] sm:text-[29px]"
+            className="interactive-button interactive-button--light neumorphic-button relative flex h-[120px] w-full max-w-[640px] items-center justify-center rounded-[9px] bg-surface-light px-6 font-cy text-[22px] font-semibold leading-normal text-[#1e1e1e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black sm:h-[170px] sm:max-w-[700px] sm:px-12 sm:text-[29px]"
           >
-            Check The Schedule Next
+            <span
+              aria-hidden
+              className="neumorphic-inset pointer-events-none absolute inset-0 rounded-[9px]"
+            />
+            <span className="relative text-center">Check The Schedule Next</span>
           </TransitionLink>
         </div>
       </RevealOnScroll>
